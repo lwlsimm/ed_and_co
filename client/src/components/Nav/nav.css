@@ -1,0 +1,97 @@
+.navbar {
+  z-index: 100;
+  font-family: 'Courier New', monospace;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navHeader, .navQuote {
+  margin:0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.leftNavText, .rightNavText {
+  width: 50%;
+  padding: 0 50px;
+}
+
+.leftNavText {
+  text-align: left;
+  padding: 0 30px;
+}
+
+.leftNavText:hover {
+  cursor: pointer;
+}
+
+.rightNavText {
+  display: flex;
+  padding: 0 20px;
+  
+}
+
+.navBtn {
+  font-family: 'Courier New', monospace;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  width: 150px;
+  background-color: #ECEADE;
+  margin: 0 5px;
+  padding: 10px 2px;
+  border-radius: 5px;
+  border: none;
+}
+.navBtn:hover {
+  background-color: #CACBC6;
+  color: white;
+  filter: drop-shadow(4px 4px 4px black);
+}
+
+.fa-shopping-basket {
+  margin: 0 ;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 835px) {
+  .navbar {
+    padding: 15px 0 0 0;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+  }
+  .leftNavText, .rightNavText {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 5px;
+  }
+
+  .rightNavText {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .navHeader, .navQuote {
+    margin:0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+  .navHeader, .navQuote {
+    text-align: center;
+  }
+
+  .navBtn {
+    width: 26vw;
+    margin: 5px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,20 @@
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 700px) {
+  .slider {
+    display: flex !important;
+  }
+  .shopFront {
+    display: none !important;
+  }
+}
+

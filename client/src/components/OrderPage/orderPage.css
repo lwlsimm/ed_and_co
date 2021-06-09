@@ -1,0 +1,73 @@
+.order-page {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-details {
+  margin-bottom: 15px;
+}
+
+.order-header {
+  text-align: center;
+  font-size: 40px;
+}
+
+.order-image {
+  max-width: 300px;
+  border-radius: 5px;
+
+}
+
+.order-price {
+  text-align: center;
+  font-size: 30px;
+}
+
+.order-desc {
+  font-family: 'Courier New', monospace;
+  padding: 10px;
+  text-align: justify;
+}
+
+.order-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sf-buybutton {
+  max-width: 250px;
+}
+
+@media only screen and (max-width: 900px) {
+  .order-main {
+    flex-direction: column;
+  }
+}
+
+.order-back {
+  background-color: #516678;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 60%;
+  height: 50px;
+}
+.order-back:hover {
+  background-color: #708DA6;
+  filter: drop-shadow(10px 10px 12px black);
+}
+.order-back:active {
+  transform: translateY(4px);
+}
+

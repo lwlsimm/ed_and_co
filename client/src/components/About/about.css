@@ -1,0 +1,24 @@
+.aboutPage {
+  margin: 0 auto;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+.aboutHeader {
+  margin: 10px 0;
+}
+
+.aboutPara {
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+.aboutList {
+  list-style: inside;
+  text-align: left;
+  margin-left: 10px;
+}

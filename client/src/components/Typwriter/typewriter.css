@@ -1,0 +1,91 @@
+.typewriter {
+  margin: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  
+}
+
+.sf-image {
+  width:  300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+.sf-more-info {
+  display: none;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+  justify-self: center;
+  height: 50px;
+  width: 150px;
+  left: 50%;
+  margin-left: -70px;
+  top: 50%;
+  margin-top: -35px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f1bb4e;
+  
+}
+
+.sf-more-info:hover {
+  background-color: white;
+  color: black;
+  
+}
+
+.sf-more-info:active {
+  transform: translateY(2px);
+}
+
+.sf-img-container {
+  position: relative;
+  display: flex;
+}
+
+.sf-img-container:hover > .sf-more-info{
+  display: block;
+}
+
+.sf-image:hover {
+  filter: drop-shadow(10px 10px 12px black);
+}
+
+.sf-title {
+  margin-top: 5px;
+}
+
+.btn-disabled, .btn-disabled:hover {
+  background-color: darkgrey !important;
+  filter: none !important;
+}
+
+
+.sf-buybutton {
+  background-color: #67A8D0;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+}
+.sf-buybutton:hover {
+  background-color: #4B7A98;
+  filter: drop-shadow(10px 10px 12px black);
+}
+.sf-buybutton:active {
+  transform: translateY(4px);
+}

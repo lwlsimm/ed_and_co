@@ -1,0 +1,114 @@
+.bs-page {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount-to-pay {
+  margin-bottom: 10px;
+}
+
+.basketItem {
+  display: grid;
+  padding: 5px !important;
+  grid-template-columns: 1fr /1fr / 1fr / 1fr;
+  width: 100%; 
+  margin: 10px;
+  border-radius: 5px;
+  border: black solid 1px
+}
+
+.bs-img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  grid-column: 1 / span 1;
+}
+
+.bs-details {
+  grid-column: 2 / span 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bs-details p {
+  font-size: 12px;
+}
+
+.bs-details h3 {
+  font-size: 16px
+}
+
+.bs-qty-container {
+  grid-column: 3 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bs-qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bs-qty-tag {
+  text-align: center;
+  font-size: 14px;
+}
+
+.bs-qtyBtn {
+  background-color: #f1bb4e;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+}
+.bs-qtyBtn:hover {
+  background-color: #f8ae1bce;
+  filter: drop-shadow(2px 2px 2px black);
+}
+.bs-qtyBtn:active {
+  transform: translateY(2px);
+}
+
+.bs-qty-no {
+  width: 25px;
+  text-align: center;
+}
+
+.bs-del-container {
+  grid-column: 4 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bs-del {
+  color: #f14e4e;
+}
+.bs-del:active {
+  color: #db3e3e;
+  transform: translateY(2px);
+}
+
+@media only screen and (max-width: 950px) {
+  .fa-2x {
+    font-size: 20px;
+  }
+  .bs-qtyBtn {
+    width: 20px;
+    height: 20px;
+  }
+}

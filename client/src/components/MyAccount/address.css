@@ -1,0 +1,66 @@
+.address {
+  display: flex;
+  width: 250px;
+  border: black 1px solid;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 8px;
+  margin: 10px
+}
+
+.address * {
+  font-size: 14px;
+}
+
+.address input, .address p {
+  margin: 3px 0;
+  text-align: left;
+}
+
+.address button, .add-new-cancel {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  height: 20px;
+}
+
+.add-new-cancel {
+  align-self: center;
+  width: 200px
+}
+
+.add-update {
+  background-color: #67A8D0;
+}
+.add-update:hover {
+  background-color: #4B7A98;
+  filter: drop-shadow(10px 10px 12px black);
+}
+
+.add-cancel {
+  background-color: #f1bb4e;
+}
+
+.add-cancel:hover {
+  background-color: #f7a90f;
+  filter: drop-shadow(10px 10px 12px black);
+}
+
+.add-delete {
+  background-color: #d9534f;
+}
+.add-delete:hover {
+  background-color: #d8342e;
+  filter: drop-shadow(10px 10px 12px black);
+}
+
+.address button:active {
+  transform: translateY(4px);
+}
