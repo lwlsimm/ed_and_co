@@ -71,7 +71,7 @@ customersRouter.post('/register', hashPassword ,async(req, res) => {
     console.log(`Step  ${address_id}`)
     if(await address_id) {
       const accessToken = await generateAccessToken(customer_id);
-      res.json({accessToken: accessToken})
+      res.json({accessToken: await accessToken})
     } else {
       throw new Error
     }

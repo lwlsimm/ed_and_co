@@ -1,4 +1,4 @@
-CREATE TABLE customers (id SERIAL PRIMARY KEY, email VARCHAR(100) UNIQUE, first_name VARCHAR(50), last_name VARCHAR(50), password VARCHAR(50));
+CREATE TABLE customers (id SERIAL PRIMARY KEY, email VARCHAR(100) UNIQUE, first_name VARCHAR(50), last_name VARCHAR(50), password VARCHAR(650));
 
 CREATE TABLE addresses (
   id SERIAL PRIMARY KEY,

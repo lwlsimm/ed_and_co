@@ -2,10 +2,13 @@ import './address.css';
 import axios from 'axios';
 import { keys } from '../../assets/keys';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const NewAddress = () => {
 
   const tokens = useSelector(state => state.tokenReducer);
+  const path = `/account`;
+  const history = useHistory();
   
   const handleAddAddress = async(e) => {
     e.preventDefault();
@@ -24,7 +27,7 @@ const NewAddress = () => {
       },
       url: keys.ADD_ADDRESS_PATH,
     });
-    window.location.reload(true);
+    history.push(path);
   };
 
     return (

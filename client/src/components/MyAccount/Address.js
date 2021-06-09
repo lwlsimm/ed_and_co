@@ -3,11 +3,14 @@ import './address.css';
 import axios from 'axios';
 import { keys } from '../../assets/keys';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const Address = (props) => {
 
   const [updating, setUpdating] = useState(false);
   const tokens = useSelector(state => state.tokenReducer);
+  const path = `/account`;
+  const history = useHistory();
 
   const {id, address_1, address_2, postal_town, post_code, country} = props.address;
 
@@ -23,7 +26,7 @@ const Address = (props) => {
       },
       url: keys.DELETE_ADDRESS_PATH,
     });
-    window.location.reload(true);
+    history.push(path);
   }
 
   const handleUpdateAddress = async(e) => {
@@ -44,7 +47,7 @@ const Address = (props) => {
       },
       url: keys.UPDATE_ADDRESS_PATH,
     });
-    window.location.reload(true);
+    history.push(path);
   }
 
   if(updating){
