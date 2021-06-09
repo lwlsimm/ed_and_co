@@ -49,9 +49,11 @@ customersRouter.post('/myaccount', authenticateToken, async(req, res) => {
 // REGISTRATION
 
 customersRouter.post('/register', hashPassword ,async(req, res) => {
+  console.log('Step 1')
   try { 
     const { email } = req.body;
     const emailAlreadyExists = await checkEmailExists(email)
+    console.log('Step 2', `Email: ${email} check: ${emailAlreadyExists}`)
     if(emailAlreadyExists) {
       res.status(406).send()
     }
