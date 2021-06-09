@@ -4,7 +4,8 @@ const express = require('express');
 require('dotenv').config();
 const {generateAccessToken, getAddressData, getBasicCustomerDataById } = require('../functions/customerFunctions');
 const { authenticateToken, hashPassword, checkPassword } = require('../functions/middleware');
-const { checkEmailExists, registerUser } = require('../functions/registrationFunctions')
+//const { checkEmailExists, registerUser } = require('../functions/registrationFunctions');
+const pool = require('../db');
 
 module.exports = customersRouter;
 
@@ -50,25 +51,27 @@ customersRouter.post('/myaccount', authenticateToken, async(req, res) => {
 // REGISTRATION
 
 customersRouter.post('/register', hashPassword ,async(req, res) => {
-  console.log('Step 1')
-  try { 
+  // try { 
     const { email } = req.body;
-    const emailAlreadyExists = await checkEmailExists(email)
-    console.log('Step 2', `Email: ${email} check: ${emailAlreadyExists}`)
-    if(emailAlreadyExists) {
+    const serverQuery = await pool.query("SELECT email FROM customers WHERE email = $1", [email]);
+    const data = await serverQuery.rows[0];
+    if(data) {
       res.status(406).send()
     }
-    console.log(`Step 4 body: ${req.body} req.pw: ${req.pw}`)
-    const userId = await registerUser(req.body, req.pw)
-    console.log('Step 5')
-    if(await userId) {
-      const accessToken = generateAccessToken(userId);
+    const { first_name, last_name, address_1, address_2, postal_town, post_code, country } = req.body;
+    const customerData = await pool.query("INSERT INTO customers (email, first_name, last_name, password) VALUES($1, $2, $3, $4) RETURNING id", [email, first_name, last_name, req.pw]);
+    const customer_id = await customerData.rows[0].id;
+    const addressData = await pool.query("INSERT INTO addresses (customer_id, address_1, address_2, postal_town, post_code, country) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id", [await customer_id, address_1, address_2, postal_town, post_code, country]);
+    const address_id = await addressData.rows[0].id;
+    if(await address_id) {
+      const accessToken = generateAccessToken(customer_id);
       res.json({accessToken: accessToken})
     } else {
       throw new Error
     }
-  } catch (err) {
-    res.status(406).send();
-  }
+  // } catch (err) {
+  //   console.log(err.message)
+  //   res.status(406).send();
+  // }
 });
 
