@@ -20,6 +20,7 @@ customersRouter.post('/login', checkPassword , async(req, res) => {
       const accessToken = generateAccessToken(customer.id);
       res.json({accessToken: accessToken})
     } else {
+      console.error(err.message);
       res.status(403).send()
     }
   } catch (err) {
