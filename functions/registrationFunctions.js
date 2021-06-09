@@ -3,6 +3,7 @@ require('dotenv').config();
 const pool = require('../db');
 
 const checkEmailExists = async (email) => {
+  console('insider check email function')
  const serverQuery = await pool.query("SELECT email FROM customers WHERE email = $1", [email]);
  const data = await serverQuery.rows[0];
  if(await data) {
