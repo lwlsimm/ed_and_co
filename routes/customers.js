@@ -51,7 +51,7 @@ customersRouter.post('/myaccount', authenticateToken, async(req, res) => {
 // REGISTRATION
 
 customersRouter.post('/register', hashPassword ,async(req, res) => {
-  // try { 
+ try { 
     console.log(`Step 1`)
     const { email } = req.body;
     const serverQuery = await pool.query("SELECT email FROM customers WHERE email = $1", [email]);
@@ -76,9 +76,9 @@ customersRouter.post('/register', hashPassword ,async(req, res) => {
     } else {
       throw new Error
     }
-  // } catch (err) {
-  //   console.log(err.message)
-  //   res.status(406).send();
-  // }
+  } catch (err) {
+    console.log(err.message)
+    res.status(406).send();
+  }
 });
 
