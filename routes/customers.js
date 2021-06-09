@@ -52,17 +52,23 @@ customersRouter.post('/myaccount', authenticateToken, async(req, res) => {
 
 customersRouter.post('/register', hashPassword ,async(req, res) => {
   // try { 
+    console.log(`Step 1`)
     const { email } = req.body;
     const serverQuery = await pool.query("SELECT email FROM customers WHERE email = $1", [email]);
+    console.log(`Step 2 ${serverQuery}`)
     const data = await serverQuery.rows[0];
+    console.log(`Step 3 ${data}`)
     if(data) {
       res.status(406).send()
     }
     const { first_name, last_name, address_1, address_2, postal_town, post_code, country } = req.body;
+    console.log(`Step 4 ${req.body}`)
     const customerData = await pool.query("INSERT INTO customers (email, first_name, last_name, password) VALUES($1, $2, $3, $4) RETURNING id", [email, first_name, last_name, req.pw]);
     const customer_id = await customerData.rows[0].id;
+    console.log(`Step 5 ${customer_id}`)
     const addressData = await pool.query("INSERT INTO addresses (customer_id, address_1, address_2, postal_town, post_code, country) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id", [await customer_id, address_1, address_2, postal_town, post_code, country]);
     const address_id = await addressData.rows[0].id;
+    console.log(`Step  ${address_id}`)
     if(await address_id) {
       const accessToken = generateAccessToken(customer_id);
       res.json({accessToken: accessToken})
