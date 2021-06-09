@@ -70,7 +70,7 @@ customersRouter.post('/register', hashPassword ,async(req, res) => {
     const address_id = await addressData.rows[0].id;
     console.log(`Step  ${address_id}`)
     if(await address_id) {
-      const accessToken = generateAccessToken(customer_id);
+      const accessToken = await generateAccessToken(customer_id);
       res.json({accessToken: accessToken})
     } else {
       throw new Error
