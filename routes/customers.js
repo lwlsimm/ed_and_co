@@ -57,7 +57,7 @@ customersRouter.post('/register', hashPassword ,async(req, res) => {
     if(emailAlreadyExists) {
       res.status(406).send()
     }
-    console.log('Step 4')
+    console.log(`Step 4 body: ${req.body} req.pw: ${req.pw}`)
     const userId = await registerUser(req.body, req.pw)
     console.log('Step 5')
     if(await userId) {
