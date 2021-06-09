@@ -62,7 +62,7 @@ customersRouter.post('/register', hashPassword ,async(req, res) => {
       res.status(406).send()
     }
     const { first_name, last_name, address_1, address_2, postal_town, post_code, country } = req.body;
-    console.log(`Step 4 ${req.body}`)
+    console.log(`Step 4 ${email} ${first_name} ${last_name} ${req.pw}`)
     pool.query("INSERT INTO customers (email, first_name, last_name, password) VALUES($1, $2, $3, $4)", [email, first_name, last_name, req.pw])
     const customerData = await pool.query("INSERT INTO customers (email, first_name, last_name, password) VALUES($1, $2, $3, $4) RETURNING id", [email, first_name, last_name, req.pw]);
     const customer_id = await customerData.rows[0].id;
